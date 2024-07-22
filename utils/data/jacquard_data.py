@@ -1,3 +1,11 @@
+'''
+Author: jiangtao lai jiangtaolai@foxmail.com
+Date: 2024-07-10 10:22:12
+LastEditors: jiangtao lai jiangtaolai@foxmail.com
+LastEditTime: 2024-07-10 21:34:06
+FilePath: /robotic-grasping/utils/data/jacquard_data.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 import glob
 import os
 
@@ -18,7 +26,7 @@ class JacquardDataset(GraspDatasetBase):
         """
         super(JacquardDataset, self).__init__(**kwargs)
 
-        self.grasp_files = glob.glob(os.path.join(file_path, '*', '*_grasps.txt'))
+        self.grasp_files = glob.glob(os.path.join(file_path, '*', '*', '*_grasps.txt'))
         self.grasp_files.sort()
         self.length = len(self.grasp_files)
 

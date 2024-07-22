@@ -90,7 +90,10 @@ Example for Jacquard dataset:
 ```bash
 python train_network.py --dataset jacquard --dataset-path <Path To Dataset> --description training_jacquard --use-dropout 0 --input-size 300
 ```
-
+```python{.line-numbers}
+python train_network.py --dataset jacquard --dataset-path '/media/ljt/D/BaiduNetdiskDownload/Jacquard' --description training_jacquard --use-dropout 0 --input-size 300
+注意写路径加上''，然后直接在路径下运行即可
+```
 ## Model Evaluation
 
 The trained network can be evaluated using the `evaluate.py` script.  Run `evaluate.py --help` for a full set of options.
@@ -104,9 +107,17 @@ python evaluate.py --network <Path to Trained Network> --dataset cornell --datas
 Example for Jacquard dataset:
 
 ```bash
-python evaluate.py --network <Path to Trained Network> --dataset jacquard --dataset-path <Path to Dataset> --iou-eval --use-dropout 0 --input-size 300
+python evaluate.py --network <Path to Trained Network已经训练好的网络的路径-相对于readme的目录> --dataset jacquard --dataset-path <Path to Dataset> --iou-eval --use-dropout 0 --input-size 300
+```
+```python{.line-numbers}
+python evaluate.py --network 'trained-models/jacquard-rgbd-grconvnet3-drop0-ch32/epoch_48_iou_0.93' --dataset jacquard --dataset-path '/media/ljt/D/BaiduNetdiskDownload/Jacquard' --iou-eval  --input-size 300
 ```
 
+```
+目录小知识：
+相对路径都是从文件的目录开始看起
+本目录下的./可以省略(defult),直接写本目录下有什么
+```
 ## Run Tasks
 A task can be executed using the relevant run script. All task scripts are named as `run_<task name>.py`. For example, to run the grasp generator run:
 ```bash
